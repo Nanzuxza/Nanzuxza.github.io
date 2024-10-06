@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KuKiKaFe</title>
+    <link href="dist/output.css" rel="stylesheet">
+    <link href="src/input.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .hamburger-line {
+            width: 24px;
+            height: 3px;
+            background-color: #000;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger-active .line-1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger-active .line-2 {
+            opacity: 0;
+        }
+
+        .hamburger-active .line-3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .navbar {
+            display: flex;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-scrolled {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animation-delay-300 {
+            animation-delay: 300ms;
+        }
+
+        .animation-delay-600 {
+            animation-delay: 600ms;
+        }
+    </style>
+
+</head>
+
+<body class="min-h-screen">
+    <section>
+        <header id="navbar" class="fixed w-full z-50 transition-all duration-300">
+            <div class="container mx-auto py-3 px-10 flex justify-between items-center transition-all duration-300">
+                <div class="transition-all duration-300">
+                    <a href="#home">
+                    <img src="/img/navbar_kuki_480.png" width="150" alt="kukikafe" class="transition-all duration-300">
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-4">
+                    <a href="#home"
+                        class="nav-link text-white hover:text-yellow-500 transition duration-200">Beranda</a>
+                    <a href="#about"
+                        class="nav-link text-white hover:text-yellow-500 transition duration-200">Tentang</a>
+                    <a href="#menu" class="nav-link text-white hover:text-yellow-500 transition duration-200">Menu</a>
+                    <a href="#contact"
+                        class="nav-link text-white hover:text-yellow-500 transition duration-200">Kontak</a>
+                </nav>
+                <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-10 h-10 text-white"
+                    aria-label="Toggle menu">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2 my-1"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+            <!-- Menu Mobile -->
+            <nav id="mobile-menu"
+                class="hidden md:hidden w-full overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+                <div class="p-4 space-y-4">
+                    <a href="#home"
+                        class="block py-2 px-4 hover:bg-yellow-100 rounded transition duration-200">Beranda</a>
+                    <a href="#about"
+                        class="block py-2 px-4 hover:bg-yellow-100 rounded transition duration-200">Tentang</a>
+                    <a href="#menu" class="block py-2 px-4 hover:bg-yellow-100 rounded transition duration-200">Menu</a>
+                    <a href="#contact"
+                        class="block py-2 px-4 hover:bg-yellow-100 rounded transition duration-200">Kontak</a>
+                </div>
+            </nav>
+        </header>
+    </section>
+    <!-- akhir navbar -->
+
+
+    
+    <main>
+        <!-- hero -->
+        <section id="home"
+            class="relative h-screen bg-cover bg-center bg-fixed flex items-center justify-center overflow-hidden"
+            style="background-image: url('/img/kuki_hero.jpg');">
+            <!-- Overlay gradien -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50"></div>
+
+            <!-- Konten hero -->
+            <div class="relative z-10 text-center text-white p-8 max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">
+                    Selamat Datang di <span class="text-yellow-400">KuKiKaFe</span>
+                </h1>
+                <p id="slogan" class="text-xl mb-8 animate-fadeIn animation-delay-300"></p>
+                <div class="flex justify-center space-x-4 animate-fadeIn animation-delay-600">
+                    <a href="#menu"
+                        class="bg-yellow-500 text-brown-900 py-3 px-8 rounded-full hover:bg-yellow-400 transition duration-300 transform hover:scale-105">
+                        Lihat Menu
+                    </a>
+                    <a href="#about"
+                        class="bg-transparent border-2 border-white text-white py-3 px-8 rounded-full hover:bg-white hover:text-brown-900 transition duration-300 transform hover:scale-105">
+                        Tentang Kami
+                    </a>
+                </div>
+            </div>
+
+            <!-- Elemen dekoratif -->
+            <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+        <!-- akhir hero -->
+
+        <!-- about -->
+        <section id="about" class="py-16 bg-white">
+            <div class="container mx-auto py-14 px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">Tentang Kami</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-1/2 mb-8 md:mb-0 m-10">
+                        <img src="/img/gelas_kopi - Copy.jpg" alt="Coffee Shop Interior" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 m-10">
+                        <p class="text-lg mb-4">KuKiKaFe adalah tempat di mana passion untuk kopi bertemu dengan
+                            keramahan. Kami memilih biji kopi terbaik dari berbagai penjuru dunia dan menyeduhnya dengan
+                            keahlian untuk menghadirkan cita rasa yang tak terlupakan.</p>
+                        <p class="text-lg">Dengan suasana yang nyaman dan pelayanan yang ramah, kami mengundang Anda
+                            untuk menikmati momen-momen berharga bersama secangkir kopi pilihan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- akhir about -->
+
+        <!-- menu -->
+        <section id="menu" class="py-16 bg-stone-200">
+            <div class="container mx-auto py-14 px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">Menu Favorit</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-down"
+                        data-aos-offset="250">
+                        <img src="/img/kopi1.jpg" alt="Espresso" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2">Espresso</h3>
+                            <p class="text-gray-700">Kopi hitam klasik dengan cita rasa kuat</p>
+                            <p class="text-yellow-500 font-bold mt-2">Rp 25.000</p>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
+                                <p class="ms-2 text-sm font-bold text-gray-900 dark:text-black">4.0</p>
+                                <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                                <a href="#"
+                                    class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-black">103
+                                    reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-down"
+                        data-aos-offset="300" >
+                        <img src="/img/kopi3.jpg" alt="Cappuccino" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2">Cappuccino</h3>
+                            <p class="text-gray-700">Espresso dengan susu dan busa susu yang lembut</p>
+                            <p class="text-yellow-500 font-bold mt-2">Rp 35.000</p>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
+                                <p class="ms-2 text-sm font-bold text-gray-900 dark:text-black">4.3</p>
+                                <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                                <a href="#"
+                                    class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-black">91
+                                    reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-down"
+                        data-aos-offset="350">
+                        <img src="/img/kopi2.jpg" alt="Latte" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2">Latte</h3>
+                            <p class="text-gray-700">Espresso dengan susu steamed dan sedikit busa</p>
+                            <p class="text-yellow-500 font-bold mt-2">Rp 35.000</p>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
+                                <p class="ms-2 text-sm font-bold text-gray-900 dark:text-black">4.9</p>
+                                <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                                <a href="#"
+                                    class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-black">219
+                                    reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-down"
+                        data-aos-offset="400">
+                        <img src="/img/Apa-Itu-Kopi-Moka-Yuk,-Cari-Tahu-di-Sini!_0.webp" alt="Mocha"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2">Mocha</h3>
+                            <p class="text-gray-700">Perpaduan espresso, cokelat, dan susu yang lezat</p>
+                            <p class="text-yellow-500 font-bold mt-2">Rp 40.000</p>
+
+
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
+                                <p class="ms-2 text-sm font-bold text-gray-900 dark:text-black">4.1</p>
+                                <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                                <a href="#"
+                                    class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-black">130
+                                    reviews</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- akhir menu -->
+
+        <!-- contact -->
+        <section id="contact" class="py-16 bg-brown-900 text-brown">
+            <div class="container py-14 mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-10">Hubungi Kami</h2>
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right" data-aos-duration="600">
+                        <h3 class="text-2xl font-bold mb-4">Informasi Kontak</h3>
+                        <p class="mb-2"><strong>Alamat:</strong> Jl. H. Agus Salim No.17, Bonto Bontoa, Kec. Somba Opu,
+                            <br>Kabupaten Gowa, Sulawesi Selatan 92111
+                        </p>
+                        <p class="mb-2"><strong>Telepon:</strong> (021) 1234-5678</p>
+                        <p class="mb-2"><strong>Email:</strong> info@Nanzuxza.com</p>
+                        <p><strong>Jam Buka:</strong> Setiap hari, 10.00 - 22.00</p>
+                    </div>
+                    <div class="md:w-1/2" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-offset="0"
+                        data-aos-duration="1000">
+                        <form action="https://api.web3forms.com/submit" method="POST" id="contactForm"
+                            class="bg-white rounded-lg">
+                            <input type="hidden" name="access_key" value="96a8c495-7fa5-4b2f-8f1d-106cc9da4526">
+                            <input type="hidden" name="to_email" value="nanzusato@gmail.com">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-bold mb-2">Nama</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full px-3 py-2 border rounded-lg text-gray-700" placeholder="Nama Anda"
+                                    required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full px-3 py-2 border rounded-lg text-gray-700"
+                                    placeholder="email@example.com" required
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                <span id="emailError" class="text-red-500 text-sm hidden">Masukkan alamat email yang
+                                    valid</span>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-bold mb-2">Pesan</label>
+                                <textarea id="message" name="message" rows="4"
+                                    class="w-full px-3 py-2 border rounded-lg text-gray-700"
+                                    placeholder="Tulis pesan Anda di sini" required></textarea>
+                            </div>
+                            <button type="submit"
+                                class="bg-yellow-500 text-brown-900 py-2 px-6 rounded-full hover:bg-yellow-400 transition duration-300">Kirim
+                                Pesan</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- akhir contact -->
+        <div class="sticky bottom-0 left-0">
+            <p class="whatsapp ps-5" style="font-size: 5rem; color:green">
+                <a href="https://api.whatsapp.com/send?phone=62895384953119">
+                    <i class="fa-brands fa-square-whatsapp"></i>
+            </p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-amber-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Nanzuxza. Hak cipta dilindungi.</p>
+            <div class="mt-4">
+                <a href="https://www.tiktok.com/@nanzuxza2?is_from_webapp=1&sender_device=pc"
+                    class="mx-2 hover:text-amber-300"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/nanzuxza/" class="mx-2 hover:text-amber-200"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/Nanzuxza" class="mx-2 hover:text-amber-200"><i
+                        class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+
+
+    <script src="https://kit.fontawesome.com/94928c5520.js" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        gsap.registerPlugin(TextPlugin);
+        //GOOD:
+        gsap.to(".slogan", {
+            duration: 3,
+            text: {
+                value: "Nikmati cita rasa kopi terbaik dalam setiap tegukan",
+            },
+        });
+    </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("a").on('click', function (event) {
+
+                if (this.hash !== "") {
+                    event.preventDefault();
+
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="dist/js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/form-handler.js"></script>
+    <script src="/dist/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+
+#navbar {
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    transition: background-color 0.7s ease, backdrop-filter 0.7s ease;
+}
+
+#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#navbar.scrolled .nav-link,
+#navbar.scrolled #hamburger {
+    color: #4B5563; /* text-gray-600 */
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #EAB308; /* yellow-500 */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+    transition: all 0.3s ease;
+}
+
+#navbar.scrolled .hamburger-line {
+    background-color: #4B5563; /* text-gray-600 */
+}
+
+@media (max-width: 768px) {
+    #navbar {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+    }
+    
+    #navbar .nav-link,
+    #navbar #hamburger {
+        color: #4B5563; /* text-gray-600 */
+    }
+}
